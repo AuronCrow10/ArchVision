@@ -1,0 +1,140 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  height: 100%;
+}
+
+/* ── Canvas ─────────────────────────────────────────────────────────────────── */
+.canvas {
+  position: relative;
+  flex: 1;
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  min-height: 320px;
+  cursor: default;
+}
+
+.locationImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+}
+
+.emptyLocation {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+/* ── Overlay (prospetto) ─────────────────────────────────────────────────────── */
+.overlay {
+  position: absolute;
+  cursor: grab;
+  box-shadow: 0 0 0 1.5px var(--accent), 0 4px 20px rgba(0,0,0,0.5);
+  border-radius: 1px;
+  user-select: none;
+}
+.overlay:active { cursor: grabbing; }
+
+.prospettoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Resize handles ──────────────────────────────────────────────────────────── */
+.handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.handle-n  { top: -5px;  left: 50%; transform: translateX(-50%); cursor: n-resize; }
+.handle-s  { bottom: -5px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
+.handle-e  { right: -5px; top: 50%; transform: translateY(-50%); cursor: e-resize; }
+.handle-w  { left: -5px; top: 50%; transform: translateY(-50%); cursor: w-resize; }
+.handle-nw { top: -5px; left: -5px; cursor: nw-resize; }
+.handle-ne { top: -5px; right: -5px; cursor: ne-resize; }
+.handle-sw { bottom: -5px; left: -5px; cursor: sw-resize; }
+.handle-se { bottom: -5px; right: -5px; cursor: se-resize; }
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────────── */
+.toolbar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.sliderLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sliderValue {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 4px;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.toggleLabel input {
+  accent-color: var(--accent);
+}
+
+.cleanupHint {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.coords {
+  display: flex;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+.coords span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}

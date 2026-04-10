@@ -1,0 +1,135 @@
+.manager {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.note {
+  color: var(--text-secondary);
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--s-4);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+}
+
+.inlineForm,
+.inlineFormWide {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.inlineForm {
+  grid-template-columns: 1fr 1fr auto;
+}
+
+.inlineFormWide {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--bg-secondary);
+}
+
+.compactGrid,
+.wideGrid {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.compactGrid {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.wideGrid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.itemActions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.relationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s-4);
+}
+
+.relationTitle {
+  margin-bottom: var(--s-2);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.checkboxList {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.checkboxItem {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-primary);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+  font: inherit;
+}
+
+@media (max-width: 800px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

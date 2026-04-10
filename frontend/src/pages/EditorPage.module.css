@@ -1,0 +1,258 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Topbar ──────────────────────────────────────────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-4) var(--s-8);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: color var(--t-fast);
+  white-space: nowrap;
+}
+.back:hover { color: var(--accent); }
+
+/* ── Steps indicator ─────────────────────────────────────────────────────────── */
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.stepDot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  transition: all var(--t-base);
+  flex-shrink: 0;
+}
+
+.stepLabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  transition: color var(--t-base);
+}
+
+.stepLine {
+  width: 32px;
+  height: 1px;
+  background: var(--border);
+  margin: 0 var(--s-2);
+}
+
+.stepActive .stepDot  { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.stepActive .stepLabel { color: var(--text-primary); }
+
+.stepDone .stepDot   { border-color: var(--success); color: var(--success); background: rgba(90,158,111,0.1); }
+.stepDone .stepLabel  { color: var(--text-secondary); }
+
+/* ── Body ────────────────────────────────────────────────────────────────────── */
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--s-8) var(--s-10);
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: var(--s-2);
+}
+
+.stepHint {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--s-6);
+}
+
+.stepActions {
+  display: flex;
+  gap: var(--s-4);
+  align-items: center;
+  margin-top: var(--s-6);
+}
+
+/* ── Step 0: Upload ──────────────────────────────────────────────────────────── */
+.uploadStep {
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+}
+
+.uploadGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-6);
+}
+
+/* ── Step 1: Editor ──────────────────────────────────────────────────────────── */
+.editorStep {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);
+  animation: fadeIn 0.3s ease;
+}
+
+.editorMain { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+
+.canvasWrapper {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Step 2: Render config ───────────────────────────────────────────────────── */
+.renderStep {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--s-10);
+  animation: fadeIn 0.3s ease;
+}
+
+.compositePreview {
+  position: relative;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-top: var(--s-4);
+}
+
+.compositePreview img {
+  width: 100%;
+  display: block;
+}
+
+.compositeLabel {
+  position: absolute;
+  bottom: var(--s-3);
+  left: var(--s-3);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  background: rgba(13,13,13,0.8);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.renderRight { display: flex; flex-direction: column; gap: var(--s-5); }
+
+.renderingNote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: var(--s-3) var(--s-4);
+  margin-top: var(--s-2);
+}
+
+/* ── Step 3: Result ──────────────────────────────────────────────────────────── */
+.resultStep {
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+
+.successIcon { color: var(--success); }
+
+.resultImages {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--s-6);
+  margin-bottom: var(--s-8);
+}
+
+.resultCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.resultCardLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+}
+
+.resultImg {
+  width: 100%;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.downloadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--t-fast);
+  align-self: flex-start;
+}
+.downloadLink:hover { color: var(--accent-hover); }
+
+/* ── Error banner ────────────────────────────────────────────────────────────── */
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: rgba(194,95,95,0.1);
+  border: 1px solid var(--error);
+  border-radius: var(--r-md);
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: var(--s-4);
+}
+
+.spin { animation: spin 1s linear infinite; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
